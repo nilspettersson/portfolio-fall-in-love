@@ -27,52 +27,44 @@ import { StarsSvg } from "@/components/svgs"
 
 export default function IndexPage() {
   return (
-    <div className="flex flex-col gap-32">
-      <section className="grid grid-cols-2">
+    <div className="flex flex-col gap-lg">
+      <section className="grid grid-cols-2 gap-y-md">
         <div
-          className="w-full rounded-br-[30%] aspect-[5/4] overflow-hidden"
-          style={{
-            backgroundImage: `url(${image.src})`,
-            width: "100%",
-            height: "100%",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "scroll",
-            backgroundRepeat: "no-repeat",
-          }}
+          className="max-h-96 lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] aspect-[5/4] overflow-hidden"
+          // style={{
+          //   backgroundImage: `url(${image.src})`,
+          //   width: "100%",
+          //   height: "100%",
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          //   backgroundAttachment: "scroll",
+          //   backgroundRepeat: "no-repeat",
+          // }}
         >
-          <SparklesCore className="h-full w-full" particleDensity={20} />
+          <Image
+            className="w-full h-full"
+            alt="image"
+            src={image}
+            width={1200}
+            height={1200}
+            style={{ objectFit: "cover" }}
+          />
+          {/* <SparklesCore className="h-full w-full" particleDensity={20} /> */}
         </div>
         <AnimatePresence>
-          <motion.div className="flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="col-span-2 lg:col-span-1 flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4"
+          >
             <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
               <span className="text-secondary">FALL IN LOVE </span>
               {/* <AnimatedText text="with where " />
               <AnimatedText text="YOUR LIFE " delay={1} /> */}
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="italic"
-              >
-                {"with where "}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className=""
-              >
-                {"YOUR LIFE "}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className=""
-              >
-                UNFOLDS
-              </motion.span>
+              <motion.span className="italic">{"with where "}</motion.span>
+              <motion.span className="">{"YOUR LIFE "}</motion.span>
+              <motion.span className="">UNFOLDS</motion.span>
             </h1>
             <Link
               href={siteConfig.links.docs}
@@ -83,12 +75,12 @@ export default function IndexPage() {
                 className: "relative overflow-hidden",
               })}
             >
-              <SparklesCore
+              {/* <SparklesCore
                 id="get-started"
                 className="absolute"
                 minSize={0.5}
                 maxSize={1}
-              />
+              /> */}
               Get Started
               <ArrowRight className="ml-2 w-5" />
             </Link>
@@ -96,7 +88,7 @@ export default function IndexPage() {
         </AnimatePresence>
       </section>
 
-      <section className="flex flex-col gap-16 py-2 px-16 -mt-12">
+      <section className="flex flex-col gap-md py-2 px-md -mt-12">
         <div className="flex justify-center">
           <StarsSvg className="size-20" />
         </div>
@@ -107,8 +99,8 @@ export default function IndexPage() {
         </h2>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 px-16 max-w-[80rem]  ">
-            <Card>
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-[80rem]  ">
+            <Card className="max-w-96 mx-auto">
               <CardHeader>
                 <CardTitle>Project Plan</CardTitle>
               </CardHeader>
@@ -133,7 +125,7 @@ export default function IndexPage() {
                 </Link>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="max-w-96 mx-auto">
               <CardHeader>
                 <CardTitle>Color Palette</CardTitle>
               </CardHeader>
@@ -154,7 +146,7 @@ export default function IndexPage() {
                 </Link>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="max-w-96 mx-auto">
               <CardHeader>
                 <CardTitle>Collaboration</CardTitle>
               </CardHeader>
@@ -182,8 +174,8 @@ export default function IndexPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-3">
-        <div className="flex flex-col gap-8 col-span-1 px-16 m-auto">
+      <section className="grid grid-cols-3 gap-y-md">
+        <div className="col-span-3 lg:col-span-2 xl:col-span-1 flex flex-col gap-sm px-md m-auto">
           <h1 className="text-secondary">Our story</h1>
           <p>
             I've always believed that our surroundings influence our mood and
@@ -201,7 +193,7 @@ export default function IndexPage() {
             <ArrowRight className="ml-2 w-5" />
           </Link>
         </div>
-        <div className="col-span-2">
+        <div className="col-start-1 col-span-3 xl:col-span-2 m-auto pl-md">
           <Image
             className="w-full rounded-l-3xl aspect-[2/1]"
             alt="image"
@@ -212,10 +204,10 @@ export default function IndexPage() {
           />
         </div>
       </section>
-      <section className="px-16 flex relative justify-center pt-16">
+      <section className="px-md flex relative justify-center pt-md">
         <div>
           <Image
-            className="hidden lg:block -z-10 absolute rounded-l-3xl aspect-[2/1] right-0 w-auto -mt-16"
+            className="hidden lg:block -z-10 absolute rounded-l-3xl aspect-[2/1] right-0 w-auto -mt-md"
             alt="image"
             src={image3}
             width={1000}
@@ -225,41 +217,41 @@ export default function IndexPage() {
         </div>
 
         <div>
-          <h1 className="text-secondary pb-8">Our clients perspective</h1>
-          <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] grid-cols-[1fr,1fr,1fr] gap-8">
+          <h1 className="text-secondary pb-sm">Our clients perspective</h1>
+          <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
             <div>
-              <p className="text-xl">
+              <p className="text-lg sm:text-xl">
                 "Working with Lohitha was a game-changer for my home. The
                 attention to detail and the ability to capture my style
                 surpassed my expectations."
               </p>
-              <div className="flex items-center gap-4 pt-8">
-                <div className="size-16 bg-primary rounded-full" />
+              <div className="flex items-center gap-xs pt-4 md:pt-8">
+                <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Happy Client]</p>
               </div>
             </div>
             <div>
-              <p className="text-xl">
+              <p className="text-lg sm:text-xl">
                 "I run a small business, and Lohitha transformed our workspace
                 into a vibrant, inspiring environment. The positive impact on my
                 team's productivity and morale was immediate. Thank you for
                 understanding our unique needs and translating them into a
                 design that works!"
               </p>
-              <div className="flex items-center gap-4 pt-4">
-                <div className="size-16 bg-primary rounded-full" />
+              <div className="flex items-center gap-xs pt-4 md:pt-4">
+                <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Business Owner]</p>
               </div>
             </div>
             <div>
-              <p className="text-xl">
+              <p className="text-lg sm:text-xl">
                 "From the initial consultation to the final reveal, Lohitha was
                 a true professional. Their creativity, flexibility, and
                 commitment to creating a space that felt like 'me' made the
                 entire experience delightful. I'm in love with my new space!"
               </p>
-              <div className="flex items-center gap-4 pt-28">
-                <div className="size-16 bg-primary rounded-full" />
+              <div className="flex items-center gap-xs pt-4 md:pt-28">
+                <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Grateful Client]</p>
               </div>
             </div>
@@ -267,8 +259,8 @@ export default function IndexPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 gap-32">
-        <div className="pr-0">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+        <div className="pr-md md:pr-0">
           <Image
             className="right-0 w-full"
             alt="image"
@@ -277,7 +269,7 @@ export default function IndexPage() {
             height={1000}
             style={{ objectFit: "cover" }}
           />
-          <div className="flex flex-col items-end pt-4">
+          <div className="flex flex-col items-end pt-xs">
             <h2>Modern bedroom</h2>
             <p>Decor / Artchitecture</p>
             <Link
@@ -295,7 +287,7 @@ export default function IndexPage() {
           </div>
         </div>
         <div />
-        <div className="pr-32">
+        <div className="pr-md md:pr-lg">
           <Image
             className="right-0 w-full"
             alt="image"
@@ -304,7 +296,7 @@ export default function IndexPage() {
             height={1000}
             style={{ objectFit: "cover" }}
           />
-          <div className="flex flex-col items-end pt-4">
+          <div className="flex flex-col items-end pt-xs">
             <h2>Living room</h2>
             <p>Decor / Artchitecture</p>
             <Link
@@ -321,7 +313,7 @@ export default function IndexPage() {
             </Link>
           </div>
         </div>
-        <div className="pl-8 -mt-[30rem]">
+        <div className="pl-md md:pl-sm md:-mt-[30rem]">
           <Image
             className="right-0 w-full"
             alt="image"
@@ -330,7 +322,7 @@ export default function IndexPage() {
             height={1000}
             style={{ objectFit: "cover" }}
           />
-          <div className="flex flex-col items-start pt-4">
+          <div className="flex flex-col items-start pt-xs">
             <h2>Bathroom</h2>
             <p>Decor / Artchitecture</p>
             <Link
@@ -348,7 +340,7 @@ export default function IndexPage() {
           </div>
         </div>
         <div />
-        <div className="-mt-[16rem] -ml-32">
+        <div className="pl-md md:-mt-[16rem] md:-ml-lg">
           <Image
             className="right-0 w-full"
             alt="image"
@@ -357,7 +349,7 @@ export default function IndexPage() {
             height={1000}
             style={{ objectFit: "cover" }}
           />
-          <div className="flex flex-col items-start pt-4">
+          <div className="flex flex-col items-start pt-xs">
             <h2>Cozy workspace</h2>
             <p>Decor / Artchitecture</p>
             <Link

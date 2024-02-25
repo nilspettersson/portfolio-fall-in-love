@@ -42,8 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen h-full">
-              {/* <SiteHeader /> */}
-              <div className="h-full bg-primary w-16"></div>
+              <div className="h-full bg-primary w-0 lg:w-16"></div>
               <div id="main" className="flex-1 overflow-auto">
                 {children}
               </div>

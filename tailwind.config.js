@@ -13,6 +13,12 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        xs: "var(--space-xs)",
+        sm: "var(--space-sm)",
+        md: "var(--space-md)",
+        lg: "var(--space-lg)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

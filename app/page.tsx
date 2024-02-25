@@ -29,18 +29,7 @@ export default function IndexPage() {
   return (
     <div className="flex flex-col gap-lg">
       <section className="grid grid-cols-2 gap-y-md">
-        <div
-          className="max-h-96 lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] aspect-[5/4] overflow-hidden"
-          // style={{
-          //   backgroundImage: `url(${image.src})`,
-          //   width: "100%",
-          //   height: "100%",
-          //   backgroundSize: "cover",
-          //   backgroundPosition: "center",
-          //   backgroundAttachment: "scroll",
-          //   backgroundRepeat: "no-repeat",
-          // }}
-        >
+        <div className="max-h-96 lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] aspect-[5/4] overflow-hidden">
           <Image
             className="w-full h-full"
             alt="image"
@@ -219,18 +208,18 @@ export default function IndexPage() {
         <div>
           <h1 className="text-secondary pb-sm">Our clients perspective</h1>
           <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
-            <div>
+            <div className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
               <p className="text-lg sm:text-xl">
                 &quot;Working with Lohitha was a game-changer for my home. The
                 attention to detail and the ability to capture my style
                 surpassed my expectations.&quot;
               </p>
-              <div className="flex items-center gap-xs pt-4 md:pt-8">
+              <div className="flex items-center gap-xs md:pt-8">
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Happy Client]</p>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
               <p className="text-lg sm:text-xl">
                 &quot;I run a small business, and Lohitha transformed our
                 workspace into a vibrant, inspiring environment. The positive
@@ -238,12 +227,12 @@ export default function IndexPage() {
                 Thank you for understanding our unique needs and translating
                 them into a design that works!&quot;
               </p>
-              <div className="flex items-center gap-xs pt-4 md:pt-4">
+              <div className="flex items-center gap-xs md:pt-4">
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Business Owner]</p>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
               <p className="text-lg sm:text-xl">
                 &quot;From the initial consultation to the final reveal, Lohitha
                 was a true professional. Their creativity, flexibility, and
@@ -251,7 +240,7 @@ export default function IndexPage() {
                 made the entire experience delightful. I&apos;m in love with my
                 new space!&quot;
               </p>
-              <div className="flex items-center gap-xs pt-4 md:pt-28">
+              <div className="flex items-center gap-xs md:pt-28">
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Grateful Client]</p>
               </div>
@@ -280,6 +269,7 @@ export default function IndexPage() {
               className={buttonVariants({
                 size: "sm",
                 variant: "link",
+                className: "px-0",
               })}
             >
               <span className="font-extrabold text-lg">Read more</span>
@@ -307,6 +297,7 @@ export default function IndexPage() {
               className={buttonVariants({
                 size: "sm",
                 variant: "link",
+                className: "px-0",
               })}
             >
               <span className="font-extrabold text-lg">Read more</span>
@@ -333,6 +324,7 @@ export default function IndexPage() {
               className={buttonVariants({
                 size: "sm",
                 variant: "link",
+                className: "px-0",
               })}
             >
               <span className="font-extrabold text-lg">Read more</span>
@@ -360,6 +352,7 @@ export default function IndexPage() {
               className={buttonVariants({
                 size: "sm",
                 variant: "link",
+                className: "px-0",
               })}
             >
               <span className="font-extrabold text-lg">Read more</span>

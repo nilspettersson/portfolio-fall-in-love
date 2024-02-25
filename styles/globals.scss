@@ -113,18 +113,13 @@ p {
 
 @media (max-width: $screen-md) {
   :root {
-    --space-sm: 2rem;
-    --space-md: 4rem;
     --space-lg: 6rem;
   }
   h1 {
     font-size: 2rem;
-    font-family: "Times New Roman", Times, sans-serif;
   }
   h2 {
     font-size: 1.5rem;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, sans-serif;
   }
 }
 
@@ -137,12 +132,9 @@ p {
   }
   h1 {
     font-size: 1.825rem;
-    font-family: "Times New Roman", Times, sans-serif;
   }
   h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, sans-serif;
+    font-size: 1.375rem;
   }
 
   p {

@@ -10,6 +10,7 @@ import image4 from "@/public/image4.png"
 import image5 from "@/public/image5.png"
 import image6 from "@/public/image6.png"
 import image7 from "@/public/image7.png"
+import { AnimatePresence, motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
@@ -59,23 +60,41 @@ export default function IndexPage() {
             backgroundRepeat: "no-repeat",
           }}
         ></div>
-        <div className="flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4">
-          <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
-            <span className="text-secondary">FALL IN LOVE</span>
-            <span className="italic"> with where </span>
-            <span className="">YOUR LIFE UNFOLDS</span>
-          </h1>
-
-          <Link
-            href={siteConfig.links.docs}
-            target="_blank"
-            rel="noreferrer"
-            className={buttonVariants({ size: "lg" })}
-          >
-            Get Started
-            <ArrowRight className="ml-2 w-5" />
-          </Link>
-        </div>
+        <AnimatePresence>
+          <motion.div className="flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4">
+            <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
+              <span className="text-secondary">FALL IN LOVE </span>
+              {/* <AnimatedText text="with where " />
+              <AnimatedText text="YOUR LIFE " delay={1} /> */}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className="italic"
+              >
+                {"with where "}
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className=""
+              >
+                {"YOUR LIFE "}
+              </motion.span>
+              <span className="">UNFOLDS</span>
+            </h1>
+            <Link
+              href={siteConfig.links.docs}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({ size: "lg" })}
+            >
+              Get Started
+              <ArrowRight className="ml-2 w-5" />
+            </Link>
+          </motion.div>
+        </AnimatePresence>
       </section>
 
       <section className="flex flex-col gap-16 py-2 px-16 -mt-12">
@@ -360,5 +379,43 @@ export default function IndexPage() {
 
       <section></section>
     </div>
+  )
+}
+
+function AnimatedText({
+  text,
+  staggerDuration = 0.1,
+  delay = 0,
+}: {
+  text: string
+  staggerDuration?: number
+  delay?: number
+}) {
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  }
+
+  return (
+    <span>
+      {text.split("").map((char, index) => (
+        <motion.span
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          transition={{ duration: 1, delay: staggerDuration * index + delay }}
+          key={index}
+          variants={textVariants}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </span>
   )
 }

@@ -5,6 +5,11 @@ import Image from "next/image"
 import Link from "next/link"
 import image from "@/public/image1.jpg"
 import image2 from "@/public/image2.png"
+import image3 from "@/public/image3.png"
+import image4 from "@/public/image4.png"
+import image5 from "@/public/image5.png"
+import image6 from "@/public/image6.png"
+import image7 from "@/public/image7.png"
 import { ArrowRight } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
@@ -84,7 +89,7 @@ export default function IndexPage() {
         </h2>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 px-16 max-w-[80rem]  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-16 max-w-[80rem]  ">
             <Card>
               <CardHeader>
                 <CardTitle>Project Plan</CardTitle>
@@ -189,6 +194,171 @@ export default function IndexPage() {
           />
         </div>
       </section>
+      <section className="px-16 flex relative justify-center pt-16">
+        <div>
+          <Image
+            className="hidden lg:block -z-10 absolute rounded-l-3xl aspect-[2/1] right-0 w-auto -mt-16"
+            alt="image"
+            src={image3}
+            width={1000}
+            height={1000}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
+        <div>
+          <h1 className="text-secondary pb-8">Our clients perspective</h1>
+          <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] grid-cols-[1fr,1fr,1fr] gap-8">
+            <div>
+              <p className="text-xl">
+                "Working with Lohitha was a game-changer for my home. The
+                attention to detail and the ability to capture my style
+                surpassed my expectations."
+              </p>
+              <div className="flex items-center gap-4 pt-8">
+                <div className="size-16 bg-primary rounded-full" />
+                <p>[Happy Client]</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-xl">
+                "I run a small business, and Lohitha transformed our workspace
+                into a vibrant, inspiring environment. The positive impact on my
+                team's productivity and morale was immediate. Thank you for
+                understanding our unique needs and translating them into a
+                design that works!"
+              </p>
+              <div className="flex items-center gap-4 pt-4">
+                <div className="size-16 bg-primary rounded-full" />
+                <p>[Business Owner]</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-xl">
+                "From the initial consultation to the final reveal, Lohitha was
+                a true professional. Their creativity, flexibility, and
+                commitment to creating a space that felt like 'me' made the
+                entire experience delightful. I'm in love with my new space!"
+              </p>
+              <div className="flex items-center gap-4 pt-28">
+                <div className="size-16 bg-primary rounded-full" />
+                <p>[Grateful Client]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="grid grid-cols-2 gap-32">
+        <div className="pr-0">
+          <Image
+            className="right-0 w-full"
+            alt="image"
+            src={image4}
+            width={1000}
+            height={1000}
+            style={{ objectFit: "cover" }}
+          />
+          <div className="flex flex-col items-end pt-4">
+            <h2>Modern bedroom</h2>
+            <p>Decor / Artchitecture</p>
+            <Link
+              href={siteConfig.links.docs}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({
+                size: "sm",
+                variant: "link",
+              })}
+            >
+              <span className="font-extrabold text-lg">Read more</span>
+              <ArrowRight className="ml-2 w-5" />
+            </Link>
+          </div>
+        </div>
+        <div />
+        <div className="pr-32">
+          <Image
+            className="right-0 w-full"
+            alt="image"
+            src={image5}
+            width={1000}
+            height={1000}
+            style={{ objectFit: "cover" }}
+          />
+          <div className="flex flex-col items-end pt-4">
+            <h2>Living room</h2>
+            <p>Decor / Artchitecture</p>
+            <Link
+              href={siteConfig.links.docs}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({
+                size: "sm",
+                variant: "link",
+              })}
+            >
+              <span className="font-extrabold text-lg">Read more</span>
+              <ArrowRight className="ml-2 w-5" />
+            </Link>
+          </div>
+        </div>
+        <div className="pl-8 -mt-[30rem]">
+          <Image
+            className="right-0 w-full"
+            alt="image"
+            src={image6}
+            width={1000}
+            height={1000}
+            style={{ objectFit: "cover" }}
+          />
+          <div className="flex flex-col items-start pt-4">
+            <h2>Bathroom</h2>
+            <p>Decor / Artchitecture</p>
+            <Link
+              href={siteConfig.links.docs}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({
+                size: "sm",
+                variant: "link",
+              })}
+            >
+              <span className="font-extrabold text-lg">Read more</span>
+              <ArrowRight className="ml-2 w-5" />
+            </Link>
+          </div>
+        </div>
+        <div />
+        <div className="-mt-[16rem] -ml-32">
+          <Image
+            className="right-0 w-full"
+            alt="image"
+            src={image7}
+            width={1000}
+            height={1000}
+            style={{ objectFit: "cover" }}
+          />
+          <div className="flex flex-col items-start pt-4">
+            <h2>Cozy workspace</h2>
+            <p>Decor / Artchitecture</p>
+            <Link
+              href={siteConfig.links.docs}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({
+                size: "sm",
+                variant: "link",
+              })}
+            >
+              <span className="font-extrabold text-lg">Read more</span>
+              <ArrowRight className="ml-2 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section></section>
     </div>
   )
 }

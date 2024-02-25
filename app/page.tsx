@@ -22,44 +22,27 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { SparklesCore } from "@/components/particles/particles"
 import { StarsSvg } from "@/components/svgs"
 
 export default function IndexPage() {
-  const [scrolledY, setScrolledY] = useState(0)
-
-  useEffect(() => {
-    console.log(scrolledY)
-    const handleScroll = (e: Event) => {
-      console.log(scrolledY)
-
-      setScrolledY(document.querySelector("#main")?.scrollTop ?? 0)
-    }
-
-    document.querySelector("#main")?.addEventListener("scroll", handleScroll)
-
-    // Clean up the event listener on component unmount
-    return () => {
-      document
-        .querySelector("#main")
-        ?.removeEventListener("scroll", handleScroll)
-    }
-  }, []) // Empty dependency array ensures that the effect runs only once
   return (
     <div className="flex flex-col gap-32">
       <section className="grid grid-cols-2">
         <div
-          className="w-full rounded-br-[30%] aspect-[5/4]"
+          className="w-full rounded-br-[30%] aspect-[5/4] overflow-hidden"
           style={{
             backgroundImage: `url(${image.src})`,
             width: "100%",
             height: "100%",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            //backgroundPosition: `left ${scrolledY - 400}px`, // Adjust as needed
             backgroundAttachment: "scroll",
             backgroundRepeat: "no-repeat",
           }}
-        ></div>
+        >
+          <SparklesCore className="h-full w-full" particleDensity={20} />
+        </div>
         <AnimatePresence>
           <motion.div className="flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4">
             <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
@@ -82,14 +65,30 @@ export default function IndexPage() {
               >
                 {"YOUR LIFE "}
               </motion.span>
-              <span className="">UNFOLDS</span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className=""
+              >
+                UNFOLDS
+              </motion.span>
             </h1>
             <Link
               href={siteConfig.links.docs}
               target="_blank"
               rel="noreferrer"
-              className={buttonVariants({ size: "lg" })}
+              className={buttonVariants({
+                size: "lg",
+                className: "relative overflow-hidden",
+              })}
             >
+              <SparklesCore
+                id="get-started"
+                className="absolute"
+                minSize={0.5}
+                maxSize={1}
+              />
               Get Started
               <ArrowRight className="ml-2 w-5" />
             </Link>
@@ -101,14 +100,14 @@ export default function IndexPage() {
         <div className="flex justify-center">
           <StarsSvg className="size-20" />
         </div>
-        <h2 className="m-auto max-w-[60rem] text-center text-accent-foreground">
+        <h2 className="font-normal m-auto max-w-[60rem] text-center text-accent-foreground">
           Whether you're revamping your living room or giving your office a
           facelift, let's collaborate! I'm here to listen, understand your
           vision, and bring it to life.
         </h2>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-16 max-w-[80rem]  ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 px-16 max-w-[80rem]  ">
             <Card>
               <CardHeader>
                 <CardTitle>Project Plan</CardTitle>

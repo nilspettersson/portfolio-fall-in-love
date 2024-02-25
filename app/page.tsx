@@ -93,9 +93,9 @@ export default function IndexPage() {
           <StarsSvg className="size-20" />
         </div>
         <h2 className="font-normal m-auto max-w-[60rem] text-center text-accent-foreground">
-          Whether you're revamping your living room or giving your office a
-          facelift, let's collaborate! I'm here to listen, understand your
-          vision, and bring it to life.
+          Whether you&apos;re revamping your living room or giving your office a
+          facelift, let&apos;s collaborate! I&apos;m here to listen, understand
+          your vision, and bring it to life.
         </h2>
 
         <div className="flex justify-center">
@@ -131,9 +131,9 @@ export default function IndexPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-center mb-auto text-xl leading-relaxed">
-                  Selecting a harmonious color scheme that aligns with the
-                  client's preferences, style, and the intended mood of the
-                  space.
+                  {
+                    "Selecting a harmonious color scheme that aligns with the client&apos;s preferences, style, and the intended mood of the space."
+                  }
                 </p>
                 <Link
                   href={siteConfig.links.docs}
@@ -178,10 +178,10 @@ export default function IndexPage() {
         <div className="col-span-3 lg:col-span-2 xl:col-span-1 flex flex-col gap-sm px-md m-auto">
           <h1 className="text-secondary">Our story</h1>
           <p>
-            I've always believed that our surroundings influence our mood and
-            well-being. That's why I chose to dive into the world of interior
-            design – to create spaces that not only look fantastic but also feel
-            like home.
+            I&apos;ve always believed that our surroundings influence our mood
+            and well-being. That&apos;s why I chose to dive into the world of
+            interior design – to create spaces that not only look fantastic but
+            also feel like home.
           </p>
           <Link
             href={siteConfig.links.docs}
@@ -221,9 +221,9 @@ export default function IndexPage() {
           <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
             <div>
               <p className="text-lg sm:text-xl">
-                "Working with Lohitha was a game-changer for my home. The
+                &quot;Working with Lohitha was a game-changer for my home. The
                 attention to detail and the ability to capture my style
-                surpassed my expectations."
+                surpassed my expectations.&quot;
               </p>
               <div className="flex items-center gap-xs pt-4 md:pt-8">
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
@@ -232,11 +232,11 @@ export default function IndexPage() {
             </div>
             <div>
               <p className="text-lg sm:text-xl">
-                "I run a small business, and Lohitha transformed our workspace
-                into a vibrant, inspiring environment. The positive impact on my
-                team's productivity and morale was immediate. Thank you for
-                understanding our unique needs and translating them into a
-                design that works!"
+                &quot;I run a small business, and Lohitha transformed our
+                workspace into a vibrant, inspiring environment. The positive
+                impact on my team&apos;s productivity and morale was immediate.
+                Thank you for understanding our unique needs and translating
+                them into a design that works!&quot;
               </p>
               <div className="flex items-center gap-xs pt-4 md:pt-4">
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
@@ -245,10 +245,11 @@ export default function IndexPage() {
             </div>
             <div>
               <p className="text-lg sm:text-xl">
-                "From the initial consultation to the final reveal, Lohitha was
-                a true professional. Their creativity, flexibility, and
-                commitment to creating a space that felt like 'me' made the
-                entire experience delightful. I'm in love with my new space!"
+                &quot;From the initial consultation to the final reveal, Lohitha
+                was a true professional. Their creativity, flexibility, and
+                commitment to creating a space that felt like &apos;me&apos;
+                made the entire experience delightful. I&apos;m in love with my
+                new space!&quot;
               </p>
               <div className="flex items-center gap-xs pt-4 md:pt-28">
                 <div className="size-10 md:size-16 bg-primary rounded-full" />

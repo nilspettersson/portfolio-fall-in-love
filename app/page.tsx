@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import image from "@/public/image1.jpg"
@@ -10,7 +10,7 @@ import image4 from "@/public/image4.png"
 import image5 from "@/public/image5.png"
 import image6 from "@/public/image6.png"
 import image7 from "@/public/image7.png"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, Variant, Variants, motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
@@ -81,6 +81,7 @@ export default function IndexPage() {
         <div className="flex justify-center">
           <StarsSvg className="size-20" />
         </div>
+
         <h2 className="font-normal m-auto max-w-[60rem] text-center text-accent-foreground">
           Whether you&apos;re revamping your living room or giving your office a
           facelift, let&apos;s collaborate! I&apos;m here to listen, understand
@@ -88,83 +89,89 @@ export default function IndexPage() {
         </h2>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-[80rem]  ">
-            <Card className="max-w-96 mx-auto">
-              <CardHeader>
-                <CardTitle>Project Plan</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-center mb-auto text-xl leading-relaxed">
-                  Determining the optimal arrangement of furniture and
-                  functional elements within a given space to ensure efficient
-                  use and flow.
-                </p>
-                <Link
-                  href={siteConfig.links.docs}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={buttonVariants({
-                    size: "sm",
-                    variant: "link",
-                    className: "text-center",
-                  })}
-                >
-                  <span className="font-extrabold text-lg">Read more</span>
-                  <ArrowRight className="ml-2 w-5" />
-                </Link>
-              </CardContent>
-            </Card>
-            <Card className="max-w-96 mx-auto">
-              <CardHeader>
-                <CardTitle>Color Palette</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-center mb-auto text-xl leading-relaxed">
-                  {
-                    "Selecting a harmonious color scheme that aligns with the client&apos;s preferences, style, and the intended mood of the space."
-                  }
-                </p>
-                <Link
-                  href={siteConfig.links.docs}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={buttonVariants({ size: "sm", variant: "link" })}
-                >
-                  <span className="font-extrabold text-lg">Read more</span>
-                  <ArrowRight className="ml-2 w-5" />
-                </Link>
-              </CardContent>
-            </Card>
-            <Card className="max-w-96 mx-auto">
-              <CardHeader>
-                <CardTitle>Collaboration</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-center mb-auto text-xl leading-relaxed">
-                  Working with contractors, and other professionals to ensure
-                  that the design aligns with structural requirements and meets
-                  building codes.
-                </p>
-                <Link
-                  href={siteConfig.links.docs}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={buttonVariants({
-                    size: "sm",
-                    variant: "link",
-                  })}
-                >
-                  <span className="font-extrabold text-lg">Read more</span>
-                  <ArrowRight className="ml-2 w-5" />
-                </Link>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-[80rem]">
+            <FadeInWhenVisible>
+              <Card className="max-w-96 mx-auto h-full">
+                <CardHeader>
+                  <CardTitle>Project Plan</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-center mb-auto text-xl leading-relaxed">
+                    Determining the optimal arrangement of furniture and
+                    functional elements within a given space to ensure efficient
+                    use and flow.
+                  </p>
+                  <Link
+                    href={siteConfig.links.docs}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({
+                      size: "sm",
+                      variant: "link",
+                      className: "text-center",
+                    })}
+                  >
+                    <span className="font-extrabold text-lg">Read more</span>
+                    <ArrowRight className="ml-2 w-5" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+            <FadeInWhenVisible>
+              <Card className="max-w-96 mx-auto h-full">
+                <CardHeader>
+                  <CardTitle>Color Palette</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-center mb-auto text-xl leading-relaxed">
+                    {
+                      "Selecting a harmonious color scheme that aligns with the client&apos;s preferences, style, and the intended mood of the space."
+                    }
+                  </p>
+                  <Link
+                    href={siteConfig.links.docs}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({ size: "sm", variant: "link" })}
+                  >
+                    <span className="font-extrabold text-lg">Read more</span>
+                    <ArrowRight className="ml-2 w-5" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
+            <FadeInWhenVisible>
+              <Card className="max-w-96 mx-auto h-full">
+                <CardHeader>
+                  <CardTitle>Collaboration</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-center mb-auto text-xl leading-relaxed">
+                    Working with contractors, and other professionals to ensure
+                    that the design aligns with structural requirements and
+                    meets building codes.
+                  </p>
+                  <Link
+                    href={siteConfig.links.docs}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={buttonVariants({
+                      size: "sm",
+                      variant: "link",
+                    })}
+                  >
+                    <span className="font-extrabold text-lg">Read more</span>
+                    <ArrowRight className="ml-2 w-5" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </FadeInWhenVisible>
           </div>
         </div>
       </section>
 
       <section className="grid grid-cols-3 gap-y-md">
-        <div className="col-span-3 lg:col-span-2 xl:col-span-1 flex flex-col gap-sm px-md m-auto">
+        <FadeInWhenVisible className="col-span-3 lg:col-span-2 xl:col-span-1 flex flex-col gap-sm px-md m-auto">
           <h1 className="text-secondary">Our story</h1>
           <p>
             I&apos;ve always believed that our surroundings influence our mood
@@ -181,16 +188,22 @@ export default function IndexPage() {
             Our Concept
             <ArrowRight className="ml-2 w-5" />
           </Link>
-        </div>
-        <div className="col-start-1 col-span-3 xl:col-span-2 m-auto pl-md">
-          <Image
-            className="w-full rounded-l-3xl aspect-[2/1]"
-            alt="image"
-            src={image2}
-            width={1200}
-            height={1200}
-            style={{ objectFit: "cover" }}
-          />
+        </FadeInWhenVisible>
+
+        <div className="col-start-1 col-span-3 xl:col-span-2 m-auto pl-md overflow-hidden">
+          <FadeInWhenVisible
+            hidden={{ translateX: "100%", opacity: 0 }}
+            visible={{ translateX: "0%", opacity: 1 }}
+          >
+            <Image
+              className=""
+              alt="image"
+              src={image2}
+              width={1200}
+              height={1200}
+              style={{ objectFit: "cover" }}
+            />
+          </FadeInWhenVisible>
         </div>
       </section>
       <section className="px-md flex relative justify-center pt-md">
@@ -208,7 +221,7 @@ export default function IndexPage() {
         <div>
           <h1 className="text-secondary pb-sm">Our clients perspective</h1>
           <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
-            <div className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
+            <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
               <p className="text-lg sm:text-xl">
                 &quot;Working with Lohitha was a game-changer for my home. The
                 attention to detail and the ability to capture my style
@@ -218,8 +231,8 @@ export default function IndexPage() {
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Happy Client]</p>
               </div>
-            </div>
-            <div className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
+            </FadeInWhenVisible>
+            <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
               <p className="text-lg sm:text-xl">
                 &quot;I run a small business, and Lohitha transformed our
                 workspace into a vibrant, inspiring environment. The positive
@@ -231,8 +244,8 @@ export default function IndexPage() {
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Business Owner]</p>
               </div>
-            </div>
-            <div className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
+            </FadeInWhenVisible>
+            <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
               <p className="text-lg sm:text-xl">
                 &quot;From the initial consultation to the final reveal, Lohitha
                 was a true professional. Their creativity, flexibility, and
@@ -244,13 +257,17 @@ export default function IndexPage() {
                 <div className="size-10 md:size-16 bg-primary rounded-full" />
                 <p>[Grateful Client]</p>
               </div>
-            </div>
+            </FadeInWhenVisible>
           </div>
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-lg">
-        <div className="pr-md md:pr-0">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-lg overflow-hidden">
+        <FadeInWhenVisible
+          hidden={{ translateX: "-100%", opacity: 0 }}
+          visible={{ translateX: "0%", opacity: 1 }}
+          className="pr-md md:pr-0"
+        >
           <Image
             className="right-0 w-full"
             alt="image"
@@ -259,6 +276,7 @@ export default function IndexPage() {
             height={1000}
             style={{ objectFit: "cover" }}
           />
+
           <div className="flex flex-col items-end pt-xs">
             <h2>Modern bedroom</h2>
             <p>Decor / Artchitecture</p>
@@ -276,9 +294,13 @@ export default function IndexPage() {
               <ArrowRight className="ml-2 w-5" />
             </Link>
           </div>
-        </div>
+        </FadeInWhenVisible>
         <div />
-        <div className="pr-md md:pr-lg">
+        <FadeInWhenVisible
+          hidden={{ translateX: "-100%", opacity: 0 }}
+          visible={{ translateX: "0%", opacity: 1 }}
+          className="pr-md md:pr-lg"
+        >
           <Image
             className="right-0 w-full"
             alt="image"
@@ -304,8 +326,12 @@ export default function IndexPage() {
               <ArrowRight className="ml-2 w-5" />
             </Link>
           </div>
-        </div>
-        <div className="pl-md md:pl-sm md:-mt-[30rem]">
+        </FadeInWhenVisible>
+        <FadeInWhenVisible
+          hidden={{ translateX: "100%", opacity: 0 }}
+          visible={{ translateX: "0%", opacity: 1 }}
+          className="pl-md md:pl-sm md:-mt-[30rem]"
+        >
           <Image
             className="right-0 w-full"
             alt="image"
@@ -331,9 +357,13 @@ export default function IndexPage() {
               <ArrowRight className="ml-2 w-5" />
             </Link>
           </div>
-        </div>
+        </FadeInWhenVisible>
         <div />
-        <div className="pl-md md:-mt-[16rem] md:-ml-lg">
+        <FadeInWhenVisible
+          hidden={{ translateX: "100%", opacity: 0 }}
+          visible={{ translateX: "0%", opacity: 1 }}
+          className="pl-md md:-mt-[16rem] md:-ml-lg"
+        >
           <Image
             className="right-0 w-full"
             alt="image"
@@ -359,7 +389,7 @@ export default function IndexPage() {
               <ArrowRight className="ml-2 w-5" />
             </Link>
           </div>
-        </div>
+        </FadeInWhenVisible>
       </section>
 
       <section></section>
@@ -402,5 +432,34 @@ function AnimatedText({
         </motion.span>
       ))}
     </span>
+  )
+}
+
+function FadeInWhenVisible({
+  className,
+  children,
+  visible,
+  hidden,
+}: {
+  className?: string
+  children: ReactNode
+  visible?: Variant
+  hidden?: Variant
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      exit={"hidden"}
+      viewport={{}}
+      transition={{ duration: 0.8 }}
+      variants={{
+        visible: visible ?? { opacity: 1, scale: 1, translateY: "0px" },
+        hidden: hidden ?? { opacity: 0, scale: 0.9, translateY: "40px" },
+      }}
+    >
+      {children}
+    </motion.div>
   )
 }

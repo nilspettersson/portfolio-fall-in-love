@@ -93,10 +93,10 @@ export default function IndexPage() {
             <FadeInWhenVisible>
               <Card className="max-w-96 mx-auto h-full">
                 <CardHeader>
-                  <CardTitle>Project Plan</CardTitle>
+                  <CardTitle className="text-secondary">Project Plan</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center mb-auto text-xl leading-relaxed">
+                  <p className="text-center mb-auto text-lg leading-normal">
                     Determining the optimal arrangement of furniture and
                     functional elements within a given space to ensure efficient
                     use and flow.
@@ -112,7 +112,6 @@ export default function IndexPage() {
                     })}
                   >
                     <span className="font-extrabold text-lg">Read more</span>
-                    <ArrowRight className="ml-2 w-5" />
                   </Link>
                 </CardContent>
               </Card>
@@ -120,10 +119,12 @@ export default function IndexPage() {
             <FadeInWhenVisible>
               <Card className="max-w-96 mx-auto h-full">
                 <CardHeader>
-                  <CardTitle>Color Palette</CardTitle>
+                  <CardTitle className="text-secondary">
+                    Color Palette
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center mb-auto text-xl leading-relaxed">
+                  <p className="text-center mb-auto text-lg leading-normal">
                     {
                       "Selecting a harmonious color scheme that aligns with the client&apos;s preferences, style, and the intended mood of the space."
                     }
@@ -135,7 +136,6 @@ export default function IndexPage() {
                     className={buttonVariants({ size: "sm", variant: "link" })}
                   >
                     <span className="font-extrabold text-lg">Read more</span>
-                    <ArrowRight className="ml-2 w-5" />
                   </Link>
                 </CardContent>
               </Card>
@@ -143,10 +143,12 @@ export default function IndexPage() {
             <FadeInWhenVisible>
               <Card className="max-w-96 mx-auto h-full">
                 <CardHeader>
-                  <CardTitle>Collaboration</CardTitle>
+                  <CardTitle className="text-secondary">
+                    Collaboration
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center mb-auto text-xl leading-relaxed">
+                  <p className="text-center mb-auto text-lg leading-normal">
                     Working with contractors, and other professionals to ensure
                     that the design aligns with structural requirements and
                     meets building codes.
@@ -161,7 +163,6 @@ export default function IndexPage() {
                     })}
                   >
                     <span className="font-extrabold text-lg">Read more</span>
-                    <ArrowRight className="ml-2 w-5" />
                   </Link>
                 </CardContent>
               </Card>

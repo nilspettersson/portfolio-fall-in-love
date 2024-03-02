@@ -29,20 +29,26 @@ export default function IndexPage() {
   return (
     <div className="flex flex-col gap-lg">
       <section className="grid grid-cols-2 gap-y-md">
-        <div className="max-h-96 lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] aspect-[5/4] overflow-hidden relative">
-          <Image
-            className="w-full h-full"
-            alt="image"
-            src={image}
-            width={1200}
-            height={1200}
-            style={{ objectFit: "cover" }}
-          />
-          <SparklesCore
-            className="h-full w-full absolute inset-0"
-            particleDensity={10}
-          />
-        </div>
+        <FadeInWhenVisible
+          visible={{ opacity: 1 }}
+          hidden={{ opacity: 0 }}
+          className="lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] overflow-hidden relative"
+        >
+          <div className="lg:shadow-none shadow-[0px_-60px_30px_-20px_inset_hsl(var(--background))] max-h-96 lg:max-h-full w-full lg:rounded-br-[12rem] aspect-[5/4]">
+            <Image
+              className="w-full h-full relative -z-10"
+              alt="image"
+              src={image}
+              width={1200}
+              height={1200}
+              style={{ objectFit: "cover" }}
+            />
+            <SparklesCore
+              className="h-full w-full absolute inset-0"
+              particleDensity={16}
+            />
+          </div>
+        </FadeInWhenVisible>
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}

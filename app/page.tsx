@@ -29,7 +29,7 @@ export default function IndexPage() {
   return (
     <div className="flex flex-col gap-lg">
       <section className="grid grid-cols-2 gap-y-md">
-        <div className="max-h-96 lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] aspect-[5/4] overflow-hidden">
+        <div className="max-h-96 lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] aspect-[5/4] overflow-hidden relative">
           <Image
             className="w-full h-full"
             alt="image"
@@ -38,7 +38,10 @@ export default function IndexPage() {
             height={1200}
             style={{ objectFit: "cover" }}
           />
-          {/* <SparklesCore className="h-full w-full" particleDensity={20} /> */}
+          <SparklesCore
+            className="h-full w-full absolute inset-0"
+            particleDensity={10}
+          />
         </div>
         <AnimatePresence>
           <motion.div
@@ -64,12 +67,12 @@ export default function IndexPage() {
                 className: "relative overflow-hidden",
               })}
             >
-              {/* <SparklesCore
+              <SparklesCore
                 id="get-started"
                 className="absolute"
                 minSize={0.5}
                 maxSize={1}
-              /> */}
+              />
               Get Started
               <ArrowRight className="ml-2 w-5" />
             </Link>

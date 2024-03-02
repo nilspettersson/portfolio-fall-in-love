@@ -56,7 +56,7 @@ export default function IndexPage() {
               <motion.span className="">UNFOLDS</motion.span>
             </h1>
             <Link
-              href={siteConfig.links.docs}
+              href={""}
               target="_blank"
               rel="noreferrer"
               className={buttonVariants({
@@ -96,13 +96,13 @@ export default function IndexPage() {
                   <CardTitle className="text-secondary">Project Plan</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center mb-auto text-lg leading-normal">
+                  <p className="text-center mb-auto leading-normal">
                     Determining the optimal arrangement of furniture and
                     functional elements within a given space to ensure efficient
                     use and flow.
                   </p>
                   <Link
-                    href={siteConfig.links.docs}
+                    href={""}
                     target="_blank"
                     rel="noreferrer"
                     className={buttonVariants({
@@ -130,7 +130,7 @@ export default function IndexPage() {
                     }
                   </p>
                   <Link
-                    href={siteConfig.links.docs}
+                    href={""}
                     target="_blank"
                     rel="noreferrer"
                     className={buttonVariants({ size: "sm", variant: "link" })}
@@ -154,7 +154,7 @@ export default function IndexPage() {
                     meets building codes.
                   </p>
                   <Link
-                    href={siteConfig.links.docs}
+                    href={""}
                     target="_blank"
                     rel="noreferrer"
                     className={buttonVariants({
@@ -181,7 +181,7 @@ export default function IndexPage() {
             also feel like home.
           </p>
           <Link
-            href={siteConfig.links.docs}
+            href={""}
             target="_blank"
             rel="noreferrer"
             className={buttonVariants({ size: "lg", className: "w-fit" })}
@@ -223,7 +223,7 @@ export default function IndexPage() {
           <h1 className="text-secondary pb-sm">Our clients perspective</h1>
           <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
             <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
-              <p className="text-lg sm:text-xl">
+              <p className="text-base sm:text-xl">
                 &quot;Working with Lohitha was a game-changer for my home. The
                 attention to detail and the ability to capture my style
                 surpassed my expectations.&quot;
@@ -234,7 +234,7 @@ export default function IndexPage() {
               </div>
             </FadeInWhenVisible>
             <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
-              <p className="text-lg sm:text-xl">
+              <p className="text-base sm:text-xl">
                 &quot;I run a small business, and Lohitha transformed our
                 workspace into a vibrant, inspiring environment. The positive
                 impact on my team&apos;s productivity and morale was immediate.
@@ -247,7 +247,7 @@ export default function IndexPage() {
               </div>
             </FadeInWhenVisible>
             <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
-              <p className="text-lg sm:text-xl">
+              <p className="text-base sm:text-xl">
                 &quot;From the initial consultation to the final reveal, Lohitha
                 was a true professional. Their creativity, flexibility, and
                 commitment to creating a space that felt like &apos;me&apos;
@@ -265,6 +265,7 @@ export default function IndexPage() {
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-lg overflow-hidden">
         <FadeInWhenVisible
+          once
           hidden={{ translateX: "-100%", opacity: 0 }}
           visible={{ translateX: "0%", opacity: 1 }}
           className="pr-md md:pr-0"
@@ -282,7 +283,7 @@ export default function IndexPage() {
             <h2>Modern bedroom</h2>
             <p>Decor / Artchitecture</p>
             <Link
-              href={siteConfig.links.docs}
+              href={""}
               target="_blank"
               rel="noreferrer"
               className={buttonVariants({
@@ -298,6 +299,7 @@ export default function IndexPage() {
         </FadeInWhenVisible>
         <div />
         <FadeInWhenVisible
+          once
           hidden={{ translateX: "-100%", opacity: 0 }}
           visible={{ translateX: "0%", opacity: 1 }}
           className="pr-md md:pr-lg"
@@ -314,7 +316,7 @@ export default function IndexPage() {
             <h2>Living room</h2>
             <p>Decor / Artchitecture</p>
             <Link
-              href={siteConfig.links.docs}
+              href={""}
               target="_blank"
               rel="noreferrer"
               className={buttonVariants({
@@ -329,6 +331,7 @@ export default function IndexPage() {
           </div>
         </FadeInWhenVisible>
         <FadeInWhenVisible
+          once
           hidden={{ translateX: "100%", opacity: 0 }}
           visible={{ translateX: "0%", opacity: 1 }}
           className="pl-md md:pl-sm md:-mt-[30rem]"
@@ -345,7 +348,7 @@ export default function IndexPage() {
             <h2>Bathroom</h2>
             <p>Decor / Artchitecture</p>
             <Link
-              href={siteConfig.links.docs}
+              href={""}
               target="_blank"
               rel="noreferrer"
               className={buttonVariants({
@@ -361,6 +364,7 @@ export default function IndexPage() {
         </FadeInWhenVisible>
         <div />
         <FadeInWhenVisible
+          once
           hidden={{ translateX: "100%", opacity: 0 }}
           visible={{ translateX: "0%", opacity: 1 }}
           className="pl-md md:-mt-[16rem] md:-ml-lg"
@@ -377,7 +381,7 @@ export default function IndexPage() {
             <h2>Cozy workspace</h2>
             <p>Decor / Artchitecture</p>
             <Link
-              href={siteConfig.links.docs}
+              href={""}
               target="_blank"
               rel="noreferrer"
               className={buttonVariants({
@@ -441,11 +445,13 @@ function FadeInWhenVisible({
   children,
   visible,
   hidden,
+  once,
 }: {
   className?: string
   children: ReactNode
   visible?: Variant
   hidden?: Variant
+  once?: boolean
 }) {
   return (
     <motion.div
@@ -453,7 +459,7 @@ function FadeInWhenVisible({
       initial="hidden"
       whileInView="visible"
       exit={"hidden"}
-      viewport={{}}
+      viewport={{ once }}
       transition={{ duration: 0.8 }}
       variants={{
         visible: visible ?? { opacity: 1, scale: 1, translateY: "0px" },

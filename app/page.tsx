@@ -326,12 +326,12 @@ export default function IndexPage() {
             </Link>
           </div>
         </FadeInWhenVisible>
-        <div />
+
         <FadeInWhenVisible
           once
           hidden={{ translateX: "-100%", opacity: 0 }}
           visible={{ translateX: "0%", opacity: 1 }}
-          className="pr-md md:pr-lg"
+          className="md:col-start-1 pr-md md:pr-lg"
         >
           <Image
             className="right-0 w-full"

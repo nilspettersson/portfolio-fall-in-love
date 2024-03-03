@@ -10,7 +10,13 @@ import image4 from "@/public/image4.png"
 import image5 from "@/public/image5.png"
 import image6 from "@/public/image6.png"
 import image7 from "@/public/image7.png"
-import { AnimatePresence, Variant, Variants, motion } from "framer-motion"
+import {
+  AnimatePresence,
+  AnimationProps,
+  Variant,
+  Variants,
+  motion,
+} from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
@@ -34,7 +40,7 @@ export default function IndexPage() {
           hidden={{ opacity: 0 }}
           className="lg:max-h-full col-span-2 lg:col-span-1 w-full lg:rounded-br-[12rem] overflow-hidden relative"
         >
-          <div className="lg:shadow-none shadow-[0px_-60px_30px_-20px_inset_hsl(var(--background))] max-h-96 lg:max-h-full w-full lg:rounded-br-[12rem] aspect-[5/4]">
+          <div className="lg:shadow-none shadow-[0px_-50px_20px_-20px_inset_hsl(var(--background))] max-h-96 lg:max-h-full w-full lg:rounded-br-[12rem] aspect-[5/4]">
             <Image
               className="w-full h-full relative -z-10"
               alt="image"
@@ -49,41 +55,39 @@ export default function IndexPage() {
             />
           </div>
         </FadeInWhenVisible>
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="col-span-2 lg:col-span-1 flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4"
-          >
-            <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
-              <span className="text-secondary">FALL IN LOVE </span>
-              {/* <AnimatedText text="with where " />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="col-span-2 lg:col-span-1 flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4"
+        >
+          <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
+            <span className="text-secondary">FALL IN LOVE </span>
+            {/* <AnimatedText text="with where " />
               <AnimatedText text="YOUR LIFE " delay={1} /> */}
-              <motion.span className="italic">{"with where "}</motion.span>
-              <motion.span className="">{"YOUR LIFE "}</motion.span>
-              <motion.span className="">UNFOLDS</motion.span>
-            </h1>
-            <Link
-              href={""}
-              target="_blank"
-              rel="noreferrer"
-              className={buttonVariants({
-                size: "lg",
-                className: "relative overflow-hidden",
-              })}
-            >
-              <SparklesCore
-                id="get-started"
-                className="absolute"
-                minSize={0.5}
-                maxSize={1}
-              />
-              Get Started
-              <ArrowRight className="ml-2 w-5" />
-            </Link>
-          </motion.div>
-        </AnimatePresence>
+            <motion.span className="italic">{"with where "}</motion.span>
+            <motion.span className="">{"YOUR LIFE "}</motion.span>
+            <motion.span className="">UNFOLDS</motion.span>
+          </h1>
+          <Link
+            href={""}
+            target="_blank"
+            rel="noreferrer"
+            className={buttonVariants({
+              size: "lg",
+              className: "relative overflow-hidden",
+            })}
+          >
+            <SparklesCore
+              id="get-started"
+              className="absolute"
+              minSize={0.5}
+              maxSize={1}
+            />
+            Get Started
+            <ArrowRight className="ml-2 w-5" />
+          </Link>
+        </motion.div>
       </section>
 
       <section className="flex flex-col gap-md py-2 px-md -mt-12">
@@ -98,8 +102,18 @@ export default function IndexPage() {
         </h2>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-[80rem]">
-            <FadeInWhenVisible>
+          <FadeInWhenVisible
+            transition={{}}
+            visible={{
+              ...animations.fade.visible,
+              transition: { staggerChildren: 0.2 },
+            }}
+            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-[80rem]"
+          >
+            <motion.div
+              variants={animations.fade}
+              transition={{ duration: 0.8 }}
+            >
               <Card className="max-w-96 mx-auto h-full">
                 <CardHeader>
                   <CardTitle className="text-secondary">Project Plan</CardTitle>
@@ -124,8 +138,11 @@ export default function IndexPage() {
                   </Link>
                 </CardContent>
               </Card>
-            </FadeInWhenVisible>
-            <FadeInWhenVisible>
+            </motion.div>
+            <motion.div
+              variants={animations.fade}
+              transition={{ duration: 0.8 }}
+            >
               <Card className="max-w-96 mx-auto h-full">
                 <CardHeader>
                   <CardTitle className="text-secondary">
@@ -133,7 +150,7 @@ export default function IndexPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center mb-auto text-lg leading-normal">
+                  <p className="text-center mb-auto leading-normal">
                     {
                       "Selecting a harmonious color scheme that aligns with the client&apos;s preferences, style, and the intended mood of the space."
                     }
@@ -148,8 +165,11 @@ export default function IndexPage() {
                   </Link>
                 </CardContent>
               </Card>
-            </FadeInWhenVisible>
-            <FadeInWhenVisible>
+            </motion.div>
+            <motion.div
+              variants={animations.fade}
+              transition={{ duration: 0.8 }}
+            >
               <Card className="max-w-96 mx-auto h-full">
                 <CardHeader>
                   <CardTitle className="text-secondary">
@@ -157,7 +177,7 @@ export default function IndexPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center mb-auto text-lg leading-normal">
+                  <p className="text-center mb-auto leading-normal">
                     Working with contractors, and other professionals to ensure
                     that the design aligns with structural requirements and
                     meets building codes.
@@ -175,8 +195,8 @@ export default function IndexPage() {
                   </Link>
                 </CardContent>
               </Card>
-            </FadeInWhenVisible>
-          </div>
+            </motion.div>
+          </FadeInWhenVisible>
         </div>
       </section>
 
@@ -371,12 +391,11 @@ export default function IndexPage() {
             </Link>
           </div>
         </FadeInWhenVisible>
-        <div />
         <FadeInWhenVisible
           once
           hidden={{ translateX: "100%", opacity: 0 }}
           visible={{ translateX: "0%", opacity: 1 }}
-          className="pl-md md:-mt-[16rem] md:-ml-lg"
+          className="md:col-start-2 pl-md md:-mt-[16rem] md:-ml-lg"
         >
           <Image
             className="right-0 w-full"
@@ -455,12 +474,14 @@ function FadeInWhenVisible({
   visible,
   hidden,
   once,
+  transition,
 }: {
   className?: string
   children: ReactNode
   visible?: Variant
   hidden?: Variant
   once?: boolean
+  transition?: AnimationProps["transition"]
 }) {
   return (
     <motion.div
@@ -469,13 +490,20 @@ function FadeInWhenVisible({
       whileInView="visible"
       exit={"hidden"}
       viewport={{ once }}
-      transition={{ duration: 0.8 }}
+      transition={transition ?? { duration: 0.8 }}
       variants={{
-        visible: visible ?? { opacity: 1, scale: 1, translateY: "0px" },
-        hidden: hidden ?? { opacity: 0, scale: 0.9, translateY: "40px" },
+        visible: visible ?? animations.fade.visible,
+        hidden: hidden ?? animations.fade.hidden,
       }}
     >
       {children}
     </motion.div>
   )
 }
+
+const animations = {
+  fade: {
+    visible: { opacity: 1, scale: 1, translateY: "0px" },
+    hidden: { opacity: 0, scale: 0.9, translateY: "40px" },
+  },
+} as const

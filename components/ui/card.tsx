@@ -9,7 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "py-8 rounded-2xl bg-card text-card-foreground shadow-sm flex flex-col items-center",
+      "py-0 rounded-2xl bg-card text-card-foreground shadow-sm flex flex-col items-center",
       className
     )}
     {...props}
@@ -23,7 +23,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col p-4 pt-12", className)}
+    className={cn("flex flex-col p-sm pt-md", className)}
     {...props}
   />
 ))
@@ -62,7 +62,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("p-md pt-0 flex flex-col flex-grow gap-12", className)}
+    className={cn("p-10 pt-0 flex flex-col flex-grow gap-12", className)}
     {...props}
   />
 ))

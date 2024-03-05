@@ -19,22 +19,15 @@ import {
 } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
-import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SparklesCore } from "@/components/particles/particles"
 import { StarsSvg } from "@/components/svgs"
 
 export default function IndexPage() {
   return (
     <div className="flex flex-col gap-lg">
-      <section className="grid grid-cols-2 gap-y-md">
+      <section className="grid grid-cols-2 gap-y-md relative">
         <FadeInWhenVisible
           visible={{ opacity: 1 }}
           hidden={{ opacity: 0 }}
@@ -61,6 +54,7 @@ export default function IndexPage() {
           transition={{ duration: 0.5 }}
           className="col-span-2 lg:col-span-1 flex flex-col m-auto items-center justify-center max-w-[42rem] gap-4 p-4"
         >
+          <StarsSvg className="opacity-0 size-96 lg:opacity-40 absolute right-xs top-xs" />
           <h1 className="text-foreground text-center tracking-[0.2em] leading-relaxed">
             <span className="text-secondary">FALL IN LOVE </span>
             {/* <AnimatedText text="with where " />
@@ -106,7 +100,7 @@ export default function IndexPage() {
             transition={{}}
             visible={{
               ...animations.fade.visible,
-              transition: { staggerChildren: 0.2 },
+              transition: { staggerChildren: 0.3 },
             }}
             className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-[80rem]"
           >
@@ -152,7 +146,7 @@ export default function IndexPage() {
                 <CardContent>
                   <p className="text-center mb-auto leading-normal">
                     {
-                      "Selecting a harmonious color scheme that aligns with the client&apos;s preferences, style, and the intended mood of the space."
+                      "Selecting a harmonious color scheme that aligns with the client's preferences, style, and the intended mood of the space."
                     }
                   </p>
                   <Link
@@ -238,32 +232,21 @@ export default function IndexPage() {
       </section>
       <section className="px-md flex relative justify-center pt-md">
         <div>
-          <Image
-            className="hidden lg:block -z-10 absolute rounded-l-3xl aspect-[2/1] right-0 w-auto -mt-md"
-            alt="image"
-            src={image3}
-            width={1000}
-            height={1000}
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-
-        <div>
           <h1 className="text-secondary pb-sm">Our clients perspective</h1>
-          <div className="grid lg:grid-cols-[1fr,1fr,1fr,0.9fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
+          <div className="grid xl:grid-cols-[1fr,1fr,1fr,0.8fr] md:grid-cols-[1fr,1fr,1fr] grid-cols-1 gap-sm gap-y-md">
             <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
-              <p className="text-base sm:text-xl">
+              <p className="text-base sm:text-xl leading-relaxed">
                 &quot;Working with Lohitha was a game-changer for my home. The
                 attention to detail and the ability to capture my style
                 surpassed my expectations.&quot;
               </p>
               <div className="flex items-center gap-xs md:pt-8">
-                <div className="size-10 md:size-16 bg-primary rounded-full" />
+                <div className="size-10 md:size-14 bg-primary rounded-full" />
                 <p>[Happy Client]</p>
               </div>
             </FadeInWhenVisible>
             <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
-              <p className="text-base sm:text-xl">
+              <p className="text-base sm:text-xl leading-relaxed">
                 &quot;I run a small business, and Lohitha transformed our
                 workspace into a vibrant, inspiring environment. The positive
                 impact on my team&apos;s productivity and morale was immediate.
@@ -271,12 +254,12 @@ export default function IndexPage() {
                 them into a design that works!&quot;
               </p>
               <div className="flex items-center gap-xs md:pt-4">
-                <div className="size-10 md:size-16 bg-primary rounded-full" />
+                <div className="size-10 md:size-14 bg-primary rounded-full" />
                 <p>[Business Owner]</p>
               </div>
             </FadeInWhenVisible>
             <FadeInWhenVisible className="flex flex-col-reverse md:flex-col gap-2 md:gap-0">
-              <p className="text-base sm:text-xl">
+              <p className="text-base sm:text-xl leading-relaxed">
                 &quot;From the initial consultation to the final reveal, Lohitha
                 was a true professional. Their creativity, flexibility, and
                 commitment to creating a space that felt like &apos;me&apos;
@@ -284,10 +267,20 @@ export default function IndexPage() {
                 new space!&quot;
               </p>
               <div className="flex items-center gap-xs md:pt-28">
-                <div className="size-10 md:size-16 bg-primary rounded-full" />
+                <div className="size-10 md:size-14 bg-primary rounded-full" />
                 <p>[Grateful Client]</p>
               </div>
             </FadeInWhenVisible>
+            <div>
+              <Image
+                className="hidden xl:block relative w-full aspect-auto -mt-lg ml-md"
+                alt="image"
+                src={image3}
+                width={1000}
+                height={1000}
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -503,7 +496,7 @@ function FadeInWhenVisible({
 
 const animations = {
   fade: {
-    visible: { opacity: 1, scale: 1, translateY: "0px" },
-    hidden: { opacity: 0, scale: 0.9, translateY: "40px" },
+    visible: { opacity: 1, translateY: "0px" },
+    hidden: { opacity: 0, translateY: "100px" },
   },
 } as const

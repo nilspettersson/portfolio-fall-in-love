@@ -35,7 +35,7 @@ export default function IndexPage() {
     container: scrollContainer,
   })
 
-  const sm = useTransform(scrollYProgress, [0, 1], [-140, -90])
+  const y = useTransform(scrollYProgress, [0, 1], [-140, -90])
 
   return (
     <div ref={scrollContainer} className="overflow-auto h-full">
@@ -50,7 +50,7 @@ export default function IndexPage() {
               ref={container}
               className="lg:shadow-none shadow-[0px_-50px_20px_-20px_inset_hsl(var(--background))] max-h-96 lg:max-h-full w-full lg:rounded-br-[12rem] aspect-[5/4]"
             >
-              <motion.div style={{ y: sm }} className="absolute -z-10">
+              <motion.div style={{ y: y }} className="absolute -z-10">
                 <Image
                   className="w-full h-full"
                   alt="image"
@@ -325,12 +325,7 @@ export default function IndexPage() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-lg overflow-hidden">
-          <FadeInWhenVisible
-            once
-            hidden={{ translateX: "-100%", opacity: 0 }}
-            visible={{ translateX: "0%", opacity: 1 }}
-            className="pr-md md:pr-0"
-          >
+          <FadeInWhenVisible once className="pr-md md:pr-0">
             <Image
               className="right-0 w-full"
               alt="image"
@@ -359,12 +354,7 @@ export default function IndexPage() {
             </div>
           </FadeInWhenVisible>
 
-          <FadeInWhenVisible
-            once
-            hidden={{ translateX: "-100%", opacity: 0 }}
-            visible={{ translateX: "0%", opacity: 1 }}
-            className="md:col-start-1 pr-md md:pr-lg"
-          >
+          <FadeInWhenVisible once className="md:col-start-1 pr-md md:pr-lg">
             <Image
               className="right-0 w-full"
               alt="image"
@@ -391,12 +381,7 @@ export default function IndexPage() {
               </Link>
             </div>
           </FadeInWhenVisible>
-          <FadeInWhenVisible
-            once
-            hidden={{ translateX: "100%", opacity: 0 }}
-            visible={{ translateX: "0%", opacity: 1 }}
-            className="pl-md md:pl-sm md:-mt-[30rem]"
-          >
+          <FadeInWhenVisible once className="pl-md md:pl-sm md:-mt-[30rem]">
             <Image
               className="right-0 w-full"
               alt="image"
@@ -425,8 +410,6 @@ export default function IndexPage() {
           </FadeInWhenVisible>
           <FadeInWhenVisible
             once
-            hidden={{ translateX: "100%", opacity: 0 }}
-            visible={{ translateX: "0%", opacity: 1 }}
             className="md:col-start-2 pl-md md:-mt-[16rem] md:-ml-lg"
           >
             <Image
@@ -537,6 +520,6 @@ function FadeInWhenVisible({
 const animations = {
   fade: {
     visible: { opacity: 1, translateY: "0px" },
-    hidden: { opacity: 0, translateY: "100px" },
+    hidden: { opacity: 0, translateY: "0px" },
   },
 } as const
